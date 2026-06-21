@@ -17,7 +17,7 @@ function App() {
         </div>
         <div>
           <h1 className="rounded-sm bg-black/20 p-3 shadow-2xl transition-all duration-100 hover:scale-105 hover:shadow-blue-600">
-            Fuck You
+            LOVE You
           </h1>
           <h1>Get started</h1>
           <p>
