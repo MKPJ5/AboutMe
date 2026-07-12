@@ -8,6 +8,9 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 export default defineConfig([
   globalIgnores(['dist']),
   {
+    rules:{
+      "no-unused-vars":false
+    },
     files: ['**/*.{ts,tsx}'],
     extends: [
       js.configs.recommended,

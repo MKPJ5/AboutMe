@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: Cardo;
+  src: url('./assets/fonts/cardo/Cardo-Bold.ttf');
+}
