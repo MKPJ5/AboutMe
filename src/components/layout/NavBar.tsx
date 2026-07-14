@@ -1,71 +1,66 @@
-// navBar.tsx
 import { useState } from 'react'
 import { NavLink, useLocation } from 'react-router'
-import { AnimatePresence, motion, type Variants } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import * as types from './NavBar.types'
 
 const NavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const location = useLocation()
 
-  const navLinks = [
+  const navLinks: types.NavLinkItem[] = [
     { to: '/projects', label: 'Projects' },
     { to: '/articels', label: 'Articels' },
-    { to: '/contact', label: 'Contact' },
+    { to: '/Contact', label: 'Contact' },
   ]
 
-  const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `hover:text-primary transition-colors ${
-      isActive ? 'text-primary' : ''
-    }`
-
-  const sidebarVariants: Variants = {
-    closed: {
-      x: '100%',
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40,
+  const animations: types.AnimationVariants = {
+    sidebar: {
+      closed: {
+        x: '100%',
+        transition: {
+          type: 'spring',
+          stiffness: 400,
+          damping: 40,
+        },
+      },
+      open: {
+        x: 0,
+        transition: {
+          type: 'spring',
+          stiffness: 400,
+          damping: 40,
+          staggerChildren: 0.1,
+          delayChildren: 0.2,
+        },
       },
     },
-    open: {
-      x: 0,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 40,
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+    overlay: {
+      closed: {
+        opacity: 0,
+        transition: {
+          duration: 0.2,
+        },
+      },
+      open: {
+        opacity: 1,
+        transition: {
+          duration: 0.2,
+        },
       },
     },
-  }
-
-  const overlayVariants: Variants = {
-    closed: {
-      opacity: 0,
-      transition: {
-        duration: 0.2,
+    link: {
+      closed: {
+        x: 50,
+        opacity: 0,
       },
-    },
-    open: {
-      opacity: 1,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  }
-
-  const linkVariants: Variants = {
-    closed: {
-      x: 50,
-      opacity: 0,
-    },
-    open: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 24,
+      open: {
+        x: 0,
+        opacity: 1,
+        transition: {
+          type: 'spring',
+          stiffness: 300,
+          damping: 24,
+        },
       },
     },
   }
@@ -73,7 +68,7 @@ const NavBar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="flex items-center justify-between px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
+      <nav className="flex items-center justify-between border-b-2 border-gray-500 px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
         {/* Logo */}
         <span className="font-cardo text-primary my-0 text-3xl sm:text-4xl md:mr-auto md:text-5xl">
           MKPJ
@@ -81,13 +76,15 @@ const NavBar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex md:items-center md:space-x-4">
-          {navLinks.map((link) => {
+          {navLinks.map((link: types.NavLinkItem) => {
             const isActive = location.pathname === link.to
             return (
               <NavLink
                 key={link.to}
-                className={({ isActive: linkActive }) =>
-                  `relative px-1 py-2 transition-colors hover:text-primary ${
+                className={({
+                  isActive: linkActive,
+                }: types.NavLinkClassProps) =>
+                  `hover:text-primary relative px-1 py-2 transition-colors ${
                     linkActive ? 'text-primary' : ''
                   }`
                 }
@@ -97,7 +94,7 @@ const NavBar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                    className="bg-primary absolute right-0 bottom-0 left-0 h-0.5"
                     transition={{
                       type: 'spring',
                       stiffness: 380,
@@ -113,7 +110,7 @@ const NavBar = () => {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="md:hidden rounded-lg p-2 hover:bg-gray-100 transition-colors"
+          className="rounded-lg p-2 transition-colors hover:bg-gray-100 md:hidden"
           aria-label="Toggle menu"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -157,7 +154,7 @@ const NavBar = () => {
           <>
             {/* Overlay */}
             <motion.div
-              variants={overlayVariants}
+              variants={animations.overlay}
               initial="closed"
               animate="open"
               exit="closed"
@@ -167,7 +164,7 @@ const NavBar = () => {
 
             {/* Sidebar */}
             <motion.div
-              variants={sidebarVariants}
+              variants={animations.sidebar}
               initial="closed"
               animate="open"
               exit="closed"
@@ -177,7 +174,7 @@ const NavBar = () => {
                 <span className="font-cardo text-primary text-2xl">MKPJ</span>
                 <motion.button
                   onClick={() => setIsSidebarOpen(false)}
-                  className="rounded-lg p-2 hover:bg-gray-100 transition-colors"
+                  className="rounded-lg p-2 transition-colors hover:bg-gray-100"
                   aria-label="Close menu"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -199,17 +196,12 @@ const NavBar = () => {
               </div>
 
               <div className="flex flex-col space-y-2 px-4 py-6">
-                {navLinks.map((link) => (
-                  <motion.div
-                    key={link.to}
-                    variants={linkVariants}
-                  >
+                {navLinks.map((link: types.NavLinkItem) => (
+                  <motion.div key={link.to} variants={animations.link}>
                     <NavLink
-                      className={({ isActive }) =>
-                        `block rounded-lg px-4 py-3 text-lg hover:bg-gray-100 transition-colors ${
-                          isActive
-                            ? 'text-primary bg-gray-50 font-medium'
-                            : ''
+                      className={({ isActive }: types.NavLinkClassProps) =>
+                        `block rounded-lg px-4 py-3 text-lg transition-colors hover:bg-gray-100 ${
+                          isActive ? 'text-primary bg-gray-50 font-medium' : ''
                         }`
                       }
                       to={link.to}
