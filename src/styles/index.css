@@ -4,3 +4,7 @@
   --font-cardo: Cardo, 'sans-serif';
   --color-primary: #c7522a;
 }
+
+body{
+  @apply bg-[#343434]
+}
