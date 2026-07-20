@@ -8,9 +8,10 @@ const NavBar = () => {
   const location = useLocation()
 
   const navLinks: types.NavLinkItem[] = [
+    { to: '/', label: 'Home' },
     { to: '/projects', label: 'Projects' },
     { to: '/articels', label: 'Articels' },
-    { to: '/Contact', label: 'Contact' },
+    { to: '/contact', label: 'Contact' },
   ]
 
   const animations: types.AnimationVariants = {
@@ -75,7 +76,7 @@ const NavBar = () => {
         </span>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-4">
+        <div className="hidden md:flex md:items-center md:space-x-4 text-white">
           {navLinks.map((link: types.NavLinkItem) => {
             const isActive = location.pathname === link.to
             return (
@@ -84,8 +85,8 @@ const NavBar = () => {
                 className={({
                   isActive: linkActive,
                 }: types.NavLinkClassProps) =>
-                  `hover:text-primary text-white relative px-1 py-2 transition-colors ${
-                    linkActive ? 'text-primary' : ''
+                  `hover:text-primary relative  px-1 py-2 transition-colors ${
+                    linkActive && 'text-primary'
                   }`
                 }
                 to={link.to}
@@ -110,7 +111,7 @@ const NavBar = () => {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="rounded-lg p-2 transition-colors hover:bg-gray-100 md:hidden"
+          className="rounded-lg p-2 transition-colors text-white  md:hidden"
           aria-label="Toggle menu"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -168,13 +169,13 @@ const NavBar = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 z-50 h-full w-64 bg-white shadow-xl md:hidden"
+              className="fixed top-0 right-0 z-50 h-full w-64 bg-[#343434] shadow-xl md:hidden"
             >
               <div className="flex items-center justify-between border-b border-gray-200 px-4 py-4">
-                <span className="font-cardo text-primary text-2xl">MKPJ</span>
+                <span className="font-cardo text-white text-2xl">MKPJ</span>
                 <motion.button
                   onClick={() => setIsSidebarOpen(false)}
-                  className="rounded-lg p-2 transition-colors hover:bg-gray-100"
+                  className="rounded-lg p-2 transition-colors text-white "
                   aria-label="Close menu"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -195,13 +196,13 @@ const NavBar = () => {
                 </motion.button>
               </div>
 
-              <div className="flex flex-col space-y-2 px-4 py-6">
+              <div className="flex flex-col space-y-2 text-white px-4 py-6">
                 {navLinks.map((link: types.NavLinkItem) => (
                   <motion.div key={link.to} variants={animations.link}>
                     <NavLink
                       className={({ isActive }: types.NavLinkClassProps) =>
-                        `block rounded-lg px-4 py-3 text-lg transition-colors hover:bg-gray-100 ${
-                          isActive ? 'text-primary bg-gray-50 font-medium' : ''
+                        `block rounded-lg px-4 py-3 text-lg transition-colors hover:text-primary ${
+                          isActive ? 'text-primary font-medium' : ''
                         }`
                       }
                       to={link.to}

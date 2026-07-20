@@ -8,3 +8,7 @@
 body{
   @apply bg-[#343434]
 }
+
+footer{
+    @apply bg-[#343434]
+}
