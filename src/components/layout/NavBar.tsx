@@ -69,9 +69,9 @@ const NavBar = () => {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="flex items-center justify-between border-b-2 border-gray-500 px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
+      <nav className="flex items-center justify-between px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
         {/* Logo */}
-        <span className="font-cardo text-[#FFFFFF] my-0 text-3xl sm:text-4xl md:mr-auto md:text-5xl">
+        <span className="font-cardo text-primary my-0 text-3xl sm:text-4xl md:mr-auto md:text-5xl">
           MKPJ
         </span>
 

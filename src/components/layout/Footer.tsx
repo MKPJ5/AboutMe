@@ -24,7 +24,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="border-t border-gray-300 mt-2">
+    <footer className="border-t border-gray-800 mt-2">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Logo Section */}
