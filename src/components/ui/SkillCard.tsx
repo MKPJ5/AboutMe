@@ -1,16 +1,16 @@
-import { motion , type Variants } from 'framer-motion'
+import { motion, type Variants } from "framer-motion";
 
 export interface SkillCardProp {
-  title: string
-  icon: string
-  description: string
-  delay: number
+  title: string;
+  icon: string;
+  description: string;
+  delay: number;
 }
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const SkillCard = ({ title, icon, description, delay }: SkillCardProp) => {
   return (
@@ -19,7 +19,7 @@ const SkillCard = ({ title, icon, description, delay }: SkillCardProp) => {
       transition={{ delay: delay }}
       whileHover={{
         y: -8,
-        boxShadow: '0 10px 30px -10px rgba(217, 119, 6, 0.3)',
+        boxShadow: "0 10px 30px -10px rgba(217, 119, 6, 0.3)",
       }}
       className="group flex cursor-default flex-col items-center rounded-2xl bg-white p-8 text-center"
     >
@@ -28,9 +28,8 @@ const SkillCard = ({ title, icon, description, delay }: SkillCardProp) => {
         <img src={icon} alt={title} className="h-full w-full object-contain" />
       </div>
       <p className="text-sm font-medium text-gray-600 underline">{description}</p>
-      <button onClick={()=>console.log('im working')}>Chaneg my color</button>
     </motion.div>
-  )
-}
+  );
+};
 
-export default SkillCard
+export default SkillCard;

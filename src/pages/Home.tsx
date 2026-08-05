@@ -1,14 +1,14 @@
-import Url from '../assets/images/Chosen2.png'
-import { motion, type Variants } from 'framer-motion'
-import JourneyItem from '../components/ui/JourneyItem'
-import SkillCard from '../components/ui/SkillCard'
-import CardsInfo from '../components/ui/SkillCardInfo'
+import Url from "../assets/images/Chosen2.png";
+import { motion, type Variants } from "framer-motion";
+import JourneyItem from "../components/ui/JourneyItem";
+import SkillCard from "../components/ui/SkillCard";
+import CardsInfo from "../components/ui/SkillCardInfo";
 
 // Animation Variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-}
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const staggerContainer: Variants = {
   hidden: { opacity: 0 },
@@ -16,7 +16,7 @@ const staggerContainer: Variants = {
     opacity: 1,
     transition: { staggerChildren: 0.2 },
   },
-}
+};
 
 const Home = () => {
   return (
@@ -47,9 +47,8 @@ const Home = () => {
           animate="visible"
           className="mb-8 max-w-lg text-lg text-gray-400"
         >
-          Front-End Developer. Building{' '}
-          <span className="text-primary"> Responsive </span>, performant web
-          experiences.
+          Front-End Developer. Building <span className="text-primary"> Responsive </span>,
+          performant web experiences.
         </motion.p>
       </section>
 
@@ -131,14 +130,10 @@ const Home = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           className="mt-12 flex justify-center"
-        >
-          <button className="hover:text-primary hover:border-primary border-b border-gray-700 pb-1 text-sm font-medium text-gray-400 transition-colors">
-            View All Skills &rarr;
-          </button>
-        </motion.div>
+        ></motion.div>
       </section>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

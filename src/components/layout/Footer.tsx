@@ -1,30 +1,30 @@
-import { motion } from 'framer-motion'
-import { Link } from 'react-router'
+import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 interface LinksTypes {
-  name: string
-  to: string
+  name: string;
+  to: string;
 }
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   const footerLinks: LinksTypes[] = [
-    { name: 'Home', to: '/' },
-    { name: 'Projects', to: '/projects' },
-    { name: 'Articels', to: '/articels' },
-    { name: 'Contact', to: '/contact' },
-  ]
+    { name: "Home", to: "/" },
+    { name: "Projects", to: "/projects" },
+    { name: "Articels", to: "/articels" },
+    { name: "Contact", to: "/contact" },
+  ];
 
   const socialLinks: LinksTypes[] = [
-    { name: 'GitHub', to: 'https://github.com/MKPJ5' },
-    { name: 'LinkedIn', to: 'https://linkedin.com/in/mkpj' },
-    { name: 'Telegram', to: 'https://t.me/MichaelKpj' },
-    { name: 'Medium', to: 'https://medium.com/@MKPJ' },
-  ]
+    { name: "GitHub", to: "https://github.com/MKPJ5" },
+    { name: "LinkedIn", to: "https://linkedin.com/in/mkpj" },
+    { name: "Telegram", to: "https://t.me/MichaelKpj" },
+    { name: "Medium", to: "https://medium.com/@MKPJ" },
+  ];
 
   return (
-    <footer className="border-t border-gray-800 mt-2">
+    <footer className="mt-2 border-t border-gray-800">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Logo Section */}
@@ -35,16 +35,15 @@ const Footer = () => {
             className="space-y-4"
           >
             <h2
-              className="text-3xl font-bold font-cardo tracking-tight"
+              className="font-cardo text-3xl font-bold tracking-tight"
               style={{
-                color: 'white',
+                color: "white",
               }}
             >
               MKPJ
             </h2>
             <p className="max-w-xs text-sm text-gray-400">
-              Self-taught developer. Discipline and hard work — that's the
-              secret of getting better.
+              Self-taught developer. Discipline and hard work — that's the secret of getting better.
             </p>
           </motion.div>
 
@@ -62,7 +61,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.to}
-                    className="text-sm text-gray-400 transition-colors duration-200 hover:text-[#c7522a]"
+                    className="hover:text-primary text-sm text-gray-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -85,7 +84,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.to}
-                    className="text-sm text-gray-400 transition-colors duration-200 hover:text-[#c7522a]"
+                    className="hover:text-primary text-sm text-gray-400 transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -103,25 +102,18 @@ const Footer = () => {
           className="mt-8 pt-8"
         >
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-500">
-              © {currentYear} MKPJ. All rights reserved.
-            </p>
+            <p className="text-sm text-gray-500">© {currentYear} MKPJ. All rights reserved.</p>
             <motion.button
               onClick={(e) => {
-                e.preventDefault()
-                window.scrollTo({ top: 0, behavior: 'smooth' })
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 text-sm text-gray-500 hover:cursor-pointer transition-colors duration-200 hover:text-[#c7522a]"
+              className="hover:text-primary flex items-center gap-2 text-sm text-gray-500 transition-colors duration-200 hover:cursor-pointer"
             >
               <span>Back to top</span>
-              <svg
-                className="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -134,7 +126,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
