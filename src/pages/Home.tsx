@@ -1,8 +1,9 @@
 import Url from "../assets/images/Chosen2.png";
-import { motion, type Variants } from "framer-motion";
+import { motion, type Variants, AnimatePresence } from "framer-motion";
 import JourneyItem from "../components/ui/JourneyItem";
 import SkillCard from "../components/ui/SkillCard";
 import CardsInfo from "../components/ui/SkillCardInfo";
+import { useState } from "react";
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -10,15 +11,42 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const staggerContainer: Variants = {
-  hidden: { opacity: 0 },
+// Card animation variants with staggered timing
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    scale: 0.8,
+    y: 20,
+  },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    scale: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 12,
+      duration: 0.4,
+    },
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.8,
+    y: -20,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+    },
   },
 };
 
+// Container variants for the staggered effect
+
 const Home = () => {
+  const [isExpended, setIsExpended] = useState<boolean>(false);
+
+  const visableCards = isExpended ? CardsInfo : CardsInfo.slice(0, 3);
+
   return (
     <div className="min-h-screen bg-[#343434] font-sans text-white selection:text-white">
       {/* --- HERO SECTION --- */}
@@ -64,29 +92,22 @@ const Home = () => {
         </motion.h2>
 
         <div className="relative ml-4 space-y-12 border-l-2 border-gray-700 md:ml-8">
-          {/* Timeline Item 1 */}
           <JourneyItem
             title="Mechanical Engineering in High School"
             date="2020 - 2023"
             description="Spent 3 years diving deep into mechanical systems. Learned discipline, project management, and how complex systems work together."
           />
-
-          {/* Timeline Item 2 */}
           <JourneyItem
             title="The Transition to Code"
             date="2023 - 2024"
             description="Fell in love with logic and problem solving. Started learning
               JavaScript, TypeScript, and the React ecosystem."
           />
-
-          {/* Timeline Item 3 */}
           <JourneyItem
             title="Deep Learning"
             date="2024 - 2025"
             description="Focused on libraries and new technologies to stay updated."
           />
-
-          {/* Timeline Item 4 */}
           <JourneyItem
             title="Preparing"
             date="Present Day"
@@ -106,31 +127,83 @@ const Home = () => {
           My <span className="text-primary">Toolbox</span>
         </motion.h2>
 
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {CardsInfo.map((card) => (
-            <SkillCard
-              key={card.title}
-              title={card.title}
-              icon={card.icon}
-              description={card.description}
-              delay={card.delay}
-            />
-          ))}
+        <motion.div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <AnimatePresence mode="popLayout">
+            {visableCards.map((card, index) => (
+              <motion.div
+                key={card.title}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                layout
+                custom={index}
+                // This transition adds the stagger effect
+                transition={{
+                  delay: index * 0.1, // Delay based on index
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 12,
+                }}
+              >
+                <SkillCard
+                  title={card.title}
+                  icon={card.icon}
+                  description={card.description}
+                  delay={card.delay}
+                />
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </motion.div>
 
-        {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-12 flex justify-center"
-        ></motion.div>
+        {/* Show More/Less Button */}
+        <div className="mt-8 flex justify-center">
+          <motion.button
+            onClick={() => setIsExpended(!isExpended)}
+            className="group relative flex items-center gap-2 rounded-lg bg-[#444] px-6 py-3 font-semibold text-white transition-colors duration-300 hover:bg-[#555]"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isExpended ? (
+              <>
+                Show Less
+                <motion.svg
+                  animate={{ rotate: 0 }}
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
+                </motion.svg>
+              </>
+            ) : (
+              <>
+                Show More
+                <motion.svg
+                  animate={{ rotate: 0 }}
+                  className="h-5 w-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </motion.svg>
+              </>
+            )}
+          </motion.button>
+        </div>
       </section>
     </div>
   );
