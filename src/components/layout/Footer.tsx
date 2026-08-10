@@ -24,7 +24,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="mt-2 border-t border-gray-800">
+    <footer className="border-t border-[#FDE68A] bg-[#FFFBEB]">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Logo Section */}
@@ -34,15 +34,8 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <h2
-              className="font-cardo text-3xl font-bold tracking-tight"
-              style={{
-                color: "white",
-              }}
-            >
-              MKPJ
-            </h2>
-            <p className="max-w-xs text-sm text-gray-400">
+            <h2 className="font-cardo text-3xl font-bold tracking-tight text-[#92400E]">MKPJ</h2>
+            <p className="max-w-xs text-sm text-[#78716C]">
               Self-taught developer. Discipline and hard work — that's the secret of getting better.
             </p>
           </motion.div>
@@ -53,7 +46,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="mb-4 text-sm font-semibold tracking-wider text-gray-200 uppercase">
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-[#92400E] uppercase">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -61,7 +54,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.to}
-                    className="hover:text-primary text-sm text-gray-400 transition-colors duration-200"
+                    className="text-sm text-[#78716C] transition-colors duration-200 hover:text-[#D97706]"
                   >
                     {link.name}
                   </Link>
@@ -76,7 +69,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="mb-4 text-sm font-semibold tracking-wider text-gray-200 uppercase">
+            <h3 className="mb-4 text-sm font-semibold tracking-wider text-[#92400E] uppercase">
               Connect
             </h3>
             <ul className="space-y-2">
@@ -84,7 +77,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.to}
-                    className="hover:text-primary text-sm text-gray-400 transition-colors duration-200"
+                    className="text-sm text-[#78716C] transition-colors duration-200 hover:text-[#D97706]"
                   >
                     {link.name}
                   </a>
@@ -99,10 +92,10 @@ const Footer = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-8 pt-8"
+          className="mt-8 border-t border-[#FDE68A]/50 pt-8"
         >
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-500">© {currentYear} MKPJ. All rights reserved.</p>
+            <p className="text-sm text-[#A8A29E]">© {currentYear} MKPJ. All rights reserved.</p>
             <motion.button
               onClick={(e) => {
                 e.preventDefault();
@@ -110,7 +103,7 @@ const Footer = () => {
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hover:text-primary flex items-center gap-2 text-sm text-gray-500 transition-colors duration-200 hover:cursor-pointer"
+              className="flex items-center gap-2 text-sm text-[#A8A29E] transition-colors duration-200 hover:cursor-pointer hover:text-[#D97706]"
             >
               <span>Back to top</span>
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

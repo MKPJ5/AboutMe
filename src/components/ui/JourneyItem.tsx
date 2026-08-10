@@ -14,10 +14,13 @@ const JourneyItem = ({ title, date, description }: JourneyProp) => {
       viewport={{ once: true }}
       className="relative pl-8"
     >
-      <div className="bg-primary absolute top-1 -left-8.25 h-4 w-4 rounded-full border-4 border-[#1a1a1a]"></div>
-      <h3 className="text-xl font-bold text-white">{title}</h3>
-      <p className="text-primary mb-2 text-sm">{date}</p>
-      <p className="leading-relaxed text-gray-400">{description}</p>
+      <div className="absolute top-1 -left-8.25 h-4 w-4 rounded-full border-4 border-[#FFFBEB] bg-[#D97706]"></div>
+
+      <h3 className="text-xl font-bold text-[#92400E]">{title}</h3>
+
+      <p className="mb-2 text-sm font-medium text-[#D97706]">{date}</p>
+
+      <p className="leading-relaxed text-[#78716C]">{description}</p>
     </motion.div>
   );
 };

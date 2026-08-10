@@ -1,14 +1,14 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
-  --font-cardo: Cardo, 'sans-serif';
+  --font-cardo: Cardo, "sans-serif";
   --color-primary: #d97706;
 }
 
-body{
-  @apply bg-[#343434] selection:bg-primary
+body {
+  @apply selection:bg-primary bg-[#FFFBEB];
 }
 
-footer{
-    @apply bg-[#343434]
+footer {
+  @apply bg-[#FFFBEB];
 }

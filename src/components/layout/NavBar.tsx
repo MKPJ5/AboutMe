@@ -1,25 +1,25 @@
-import { useState } from 'react'
-import { NavLink, useLocation } from 'react-router'
-import { AnimatePresence, motion } from 'framer-motion'
-import * as types from './NavBar.types'
+import { useState } from "react";
+import { NavLink, useLocation } from "react-router";
+import { AnimatePresence, motion } from "framer-motion";
+import * as types from "./NavBar.types";
 
 const NavBar = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const location = useLocation()
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const location = useLocation();
 
   const navLinks: types.NavLinkItem[] = [
-    { to: '/', label: 'Home' },
-    { to: '/projects', label: 'Projects' },
-    { to: '/articels', label: 'Articels' },
-    { to: '/contact', label: 'Contact' },
-  ]
+    { to: "/", label: "Home" },
+    { to: "/projects", label: "Projects" },
+    { to: "/articels", label: "Articels" },
+    { to: "/contact", label: "Contact" },
+  ];
 
   const animations: types.AnimationVariants = {
     sidebar: {
       closed: {
-        x: '100%',
+        x: "100%",
         transition: {
-          type: 'spring',
+          type: "spring",
           stiffness: 400,
           damping: 40,
         },
@@ -27,7 +27,7 @@ const NavBar = () => {
       open: {
         x: 0,
         transition: {
-          type: 'spring',
+          type: "spring",
           stiffness: 400,
           damping: 40,
           staggerChildren: 0.1,
@@ -58,35 +58,33 @@ const NavBar = () => {
         x: 0,
         opacity: 1,
         transition: {
-          type: 'spring',
+          type: "spring",
           stiffness: 300,
           damping: 24,
         },
       },
     },
-  }
+  };
 
   return (
     <>
       {/* Main Navbar */}
-      <nav className="flex items-center justify-between px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
+      <nav className="flex items-center justify-between bg-[#FFFBEB] px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
         {/* Logo */}
-        <span className="font-cardo text-primary my-0 text-3xl sm:text-4xl md:mr-auto md:text-5xl">
+        <span className="font-cardo my-0 text-3xl text-[#92400E] sm:text-4xl md:mr-auto md:text-5xl">
           MKPJ
         </span>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex md:items-center md:space-x-4 text-white">
+        <div className="hidden md:flex md:items-center md:space-x-4">
           {navLinks.map((link: types.NavLinkItem) => {
-            const isActive = location.pathname === link.to
+            const isActive = location.pathname === link.to;
             return (
               <NavLink
                 key={link.to}
-                className={({
-                  isActive: linkActive,
-                }: types.NavLinkClassProps) =>
-                  `hover:text-primary relative  px-1 py-2 transition-colors ${
-                    linkActive && 'text-primary'
+                className={({ isActive: linkActive }: types.NavLinkClassProps) =>
+                  `relative px-1 py-2 text-[#78716C] transition-colors hover:text-[#D97706] ${
+                    linkActive && "text-[#D97706]"
                   }`
                 }
                 to={link.to}
@@ -95,33 +93,28 @@ const NavBar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="underline"
-                    className="bg-primary absolute right-0 bottom-0 left-0 h-0.5"
+                    className="absolute right-0 bottom-0 left-0 h-0.5 bg-[#D97706]"
                     transition={{
-                      type: 'spring',
+                      type: "spring",
                       stiffness: 380,
                       damping: 30,
                     }}
                   />
                 )}
               </NavLink>
-            )
+            );
           })}
         </div>
 
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="rounded-lg p-2 transition-colors text-white  md:hidden"
+          className="rounded-lg p-2 text-[#92400E] transition-colors hover:text-[#D97706] md:hidden"
           aria-label="Toggle menu"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
+          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isSidebarOpen ? (
               <motion.path
                 key="close"
@@ -169,23 +162,18 @@ const NavBar = () => {
               initial="closed"
               animate="open"
               exit="closed"
-              className="fixed top-0 right-0 z-50 h-full w-64 bg-[#343434] shadow-xl md:hidden"
+              className="fixed top-0 right-0 z-50 h-full w-64 bg-[#FFFBEB] shadow-xl md:hidden"
             >
-              <div className="flex items-center justify-between border-b border-gray-200 px-4 py-4">
-                <span className="font-cardo text-white text-2xl">MKPJ</span>
+              <div className="flex items-center justify-between border-b border-[#FDE68A] px-4 py-4">
+                <span className="font-cardo text-2xl text-[#92400E]">MKPJ</span>
                 <motion.button
                   onClick={() => setIsSidebarOpen(false)}
-                  className="rounded-lg p-2 transition-colors text-white "
+                  className="rounded-lg p-2 text-[#92400E] transition-colors hover:text-[#D97706]"
                   aria-label="Close menu"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <svg
-                    className="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
+                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -196,13 +184,13 @@ const NavBar = () => {
                 </motion.button>
               </div>
 
-              <div className="flex flex-col space-y-2 text-white px-4 py-6">
+              <div className="flex flex-col space-y-2 px-4 py-6">
                 {navLinks.map((link: types.NavLinkItem) => (
                   <motion.div key={link.to} variants={animations.link}>
                     <NavLink
                       className={({ isActive }: types.NavLinkClassProps) =>
-                        `block rounded-lg px-4 py-3 text-lg transition-colors hover:text-primary ${
-                          isActive ? 'text-primary font-medium' : ''
+                        `block rounded-lg px-4 py-3 text-lg text-[#78716C] transition-colors hover:bg-[#FEF3C7] hover:text-[#D97706] ${
+                          isActive ? "bg-[#FEF3C7] font-medium text-[#D97706]" : ""
                         }`
                       }
                       to={link.to}
@@ -218,7 +206,7 @@ const NavBar = () => {
         )}
       </AnimatePresence>
     </>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
