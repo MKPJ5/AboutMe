@@ -10,5 +10,9 @@ body {
 }
 
 footer {
-  @apply bg-[#FFFBEB];
+  @apply bg-[#FFFBEB] select-none;
+}
+
+nav {
+  @apply select-none;
 }
