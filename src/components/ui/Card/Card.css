@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.card {
+  @apply flex max-h-53.5 cursor-default flex-col items-center rounded-2xl bg-white p-8 text-center shadow-md ring-1 ring-[#FDE68A]/50 transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-[0_10px_30px_-10px_rgba(217,119,6,0.4)] ring-amber-800/30 transition-transform duration-300 hover:-translate-y-2 hover:bg-gray-50;
+}
+
+.title {
+  @apply mb-4 text-xl font-bold text-[#92400E];
+}
+
+.iconWrapper {
+  @apply mb-4 flex h-16 w-16 items-center justify-center;
+}
+
+.icon {
+  @apply h-full w-full object-contain;
+}
+
+.description {
+  @apply text-sm leading-relaxed text-[#78716C];
+}
