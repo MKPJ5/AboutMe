@@ -1,6 +1,6 @@
-import type { SkillCardProp } from "./SkillCard";
+import type CardProp from "../types/card.types";
 
-const CardsInfo: SkillCardProp[] = [
+const CardsInfo: CardProp[] = [
   {
     title: "TypeScript",
     icon: "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/typescript/typescript-original.svg",
@@ -38,7 +38,7 @@ const CardsInfo: SkillCardProp[] = [
     delay: 0.6,
   },
   {
-    title: "React-Testing-Library",
+    title: "RTL",
     icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/testing-library/default.svg",
     description: "UI Testing Library",
     delay: 0.7,

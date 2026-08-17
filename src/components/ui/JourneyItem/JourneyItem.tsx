@@ -11,7 +11,11 @@ const JourneyItem = ({ title, date, description }: JourneyProp) => {
     <motion.div
       initial={{ opacity: 0, x: -30 }}
       whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
+      viewport={{
+        once: true,
+        amount: 0.3,
+        margin: "0px 0px -50px 0px",
+      }}
       className="relative pl-8"
     >
       <div className="absolute top-1 -left-8.25 h-4 w-4 rounded-full border-4 border-[#FFFBEB] bg-[#D97706]"></div>
