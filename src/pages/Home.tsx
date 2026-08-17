@@ -1,9 +1,9 @@
-import Url from "../assets/images/Chosen2.png";
-import { motion, type Variants, AnimatePresence, useAnimationControls } from "framer-motion";
-import JourneyItem from "../components/ui/JourneyItem";
-import SkillCard, { type SkillCardProp } from "../components/ui/SkillCard";
-import CardsInfo from "../components/ui/SkillCardInfo";
-import { useState } from "react";
+import Url from "@/assets/images/Chosen2.png";
+import { motion, type Variants } from "framer-motion";
+import JourneyItem from "../components/ui/JourneyItem/JourneyItem";
+import SoftSkillsInfo from "@/data/SoftSkillInfo";
+import CardsInfo from "@/data/SkillCardInfo";
+import SkillsSection from "../components/ui/SkillSection/SkillSection";
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -11,56 +11,7 @@ const fadeInUp: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-const cardVariants: Variants = {
-  hidden: {
-    y: -200,
-    opacity: 0,
-  },
-  visible: (custom: { enterDelay: number }) => ({
-    y: 0,
-    opacity: 1,
-    transition: { type: "spring", stiffness: 120, delay: custom.enterDelay },
-  }),
-  exit: (custom: { exitDelay: number }) => ({
-    y: -500,
-    opacity: 0,
-    transition: { duration: 0.09, delay: custom.exitDelay },
-  }),
-};
-
 const Home = () => {
-  const [cards, setCards] = useState<SkillCardProp[]>([]);
-  const [isExpended, setIsExpended] = useState<boolean>(false);
-  const buttonAnimate = useAnimationControls();
-
-  const buttonAnimationControl = async () => {
-    await buttonAnimate.start({
-      backgroundColor: "green",
-      scale: 1.5,
-      transition: { duration: 1 },
-    });
-
-    if (isExpended === true) {
-      await buttonAnimate.start({
-        backgroundColor: "red",
-        scale: 1,
-        transition: { duration: 1 },
-      });
-    }
-  };
-
-  function cardsSetter() {
-    if (cards?.length) {
-      setIsExpended(false);
-      setCards([]);
-    } else {
-      const selectedCards = CardsInfo.slice(2);
-      setCards(selectedCards);
-      setIsExpended(true);
-    }
-    console.log(cards);
-  }
-
   return (
     <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
       {/* --- HERO SECTION --- */}
@@ -132,106 +83,33 @@ const Home = () => {
       </section>
 
       {/* --- SKILLS SECTION --- */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-center font-serif text-3xl font-bold text-[#92400E]"
-        >
-          My <span className="text-[#D97706]">Toolbox</span>
-        </motion.h2>
+      <SkillsSection title="Coding" highlightedWord="Skills" skills={CardsInfo} initialCount={4} />
 
-        <motion.div layout className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {CardsInfo.slice(0, 3).map((card) => (
-            <motion.div
-              layout
-              variants={cardVariants}
-              initial="hidden"
-              animate="visible"
-              custom={{ enterDelay: card.delay }}
-              key={card.title}
-            >
-              <SkillCard
-                icon={card.icon}
-                title={card.title}
-                description={card.description}
-                delay={card.delay}
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div layout className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {cards?.map((card, index) => (
-              <motion.div
-                variants={cardVariants}
-                key={card.title}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                custom={{
-                  enterDelay: card.delay - 0.3,
-                  exitDelay: (cards.length - 1 - index) * 0.03,
-                }}
-              >
-                <SkillCard
-                  title={card.title}
-                  icon={card.icon}
-                  description={card.description}
-                  delay={card.delay}
-                />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
-
-        {/* Show More/Less Button */}
-        <div className="mt-8 flex justify-center">
-          <motion.button
-            layout
-            onClick={() => cardsSetter()}
-            className="group relative flex items-center gap-2 rounded-lg bg-[#D97706] px-6 py-3 font-semibold text-white shadow-md shadow-[#D97706]/25 transition-colors duration-300 hover:scale-3d hover:scale-[1.05] hover:bg-[#B45309] active:scale-95"
-          >
-            {isExpended ? (
-              <>
-                Show Less
-                <motion.svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 15l7-7 7 7"
-                  />
-                </motion.svg>
-              </>
-            ) : (
-              <>
-                Show More
-                <motion.svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </motion.svg>
-              </>
-            )}
-          </motion.button>
+      <div>
+        {/* Top Ornament */}
+        <div className="mb-8 flex items-center justify-center gap-4">
+          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
+          <span className="text-2xl text-[#D97706]">✦</span>
+          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
         </div>
-      </section>
+
+        <p className="text-center font-serif text-xl text-[#A8A29E] italic md:text-2xl">
+          &ldquo;Code gets the job done. Character gets you the job.&rdquo;
+        </p>
+
+        {/* Bottom Ornament */}
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
+          <span className="text-2xl text-[#D97706]">✦</span>
+          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
+        </div>
+      </div>
+      <SkillsSection
+        title="Soft"
+        highlightedWord="Skills"
+        skills={SoftSkillsInfo}
+        initialCount={4}
+      />
     </div>
   );
 };
