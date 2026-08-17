@@ -3,19 +3,19 @@ import type CardProp from "../types/card.types";
 const CardsInfo: CardProp[] = [
   {
     title: "TypeScript",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/typescript/typescript-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg",
     description: "Type Safty Language",
     delay: 0.1,
   },
   {
     title: "React",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/react/react-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/reactnative/default.svg",
     description: "JavaScript Framework ",
     delay: 0.2,
   },
   {
     title: "Jest",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/jest/jest-plain.svg",
+    icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/jest/default.svg",
     description: "JavaScript Testing Framework",
     delay: 0.3,
   },
@@ -27,7 +27,7 @@ const CardsInfo: CardProp[] = [
   },
   {
     title: "React-Router",
-    icon: "https://raw.githubusercontent.com/devicons/devicon/7330accdbc47e2dc0c19789a48533c4a3c50fe58/icons/reactrouter/reactrouter-original.svg",
+    icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/react-router/default.svg",
     description: "URL Managment Framework ",
     delay: 0.5,
   },
