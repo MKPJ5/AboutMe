@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .card {
-  @apply flex max-h-53.5 cursor-default flex-col items-center rounded-2xl bg-white p-8 text-center shadow-md ring-1 ring-[#FDE68A]/50 transition-all duration-300;
+  @apply flex max-h-53.5 cursor-default flex-col items-center rounded-2xl bg-white p-8 pt-5 text-center shadow-md ring-1 ring-[#FDE68A]/50 transition-all duration-300;
 }
 
 .card:hover {

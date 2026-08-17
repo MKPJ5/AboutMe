@@ -2,12 +2,18 @@ import { motion } from "framer-motion";
 import type CardProp from "@/types/card.types";
 import "./Card.css";
 
-const Card = ({ title, icon, description, delay }: CardProp) => {
+const Card = ({ title, icon: Icon, description, delay }: CardProp) => {
+  const isString = typeof Icon === "string";
+
   return (
     <motion.div transition={{ delay: delay }} className="card">
       <h3 className="title">{title}</h3>
       <div className="iconWrapper">
-        <img src={icon} alt={title} className="icon" />
+        {isString ? (
+          <img src={Icon} alt={title} className="icon" />
+        ) : (
+          <Icon className="text-primary h-14 w-14 object-contain" />
+        )}
       </div>
       <p className="description">{description}</p>
     </motion.div>
