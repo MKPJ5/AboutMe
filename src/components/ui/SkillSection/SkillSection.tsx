@@ -3,6 +3,7 @@ import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Card from "../Card/Card";
 import { CardProp, CardType } from "@/types/card.types";
 import { useState } from "react";
+import Button from "../Button/Button";
 
 interface SkillsSectionProps {
   title: string;
@@ -132,46 +133,46 @@ const SkillsSection = ({
       {/* Show More/Less Button - only if there are more skills to show */}
       {remainingSkills.length > 0 && (
         <motion.div layout className="mt-8 flex justify-center">
-          <motion.button
-            onClick={toggleCards}
-            className="group relative flex items-center gap-2 rounded-lg bg-[#D97706] px-6 py-3 font-semibold text-white shadow-md shadow-[#D97706]/25 transition-colors duration-300 hover:scale-3d hover:scale-[1.05] hover:bg-[#B45309] active:scale-95"
-          >
-            {isExpanded ? (
-              <>
-                Show Less
-                <motion.svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M5 15l7-7 7 7"
-                  />
-                </motion.svg>
-              </>
-            ) : (
-              <>
-                Show More
-                <motion.svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </motion.svg>
-              </>
-            )}
-          </motion.button>
+          <Button
+            clickHandler={() => toggleCards()}
+            innerHtml={
+              isExpanded ? (
+                <>
+                  Show Less
+                  <motion.svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 15l7-7 7 7"
+                    />
+                  </motion.svg>
+                </>
+              ) : (
+                <>
+                  Show More
+                  <motion.svg
+                    className="h-5 w-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </motion.svg>
+                </>
+              )
+            }
+          />
         </motion.div>
       )}
     </section>

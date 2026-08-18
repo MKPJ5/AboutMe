@@ -8,6 +8,7 @@ import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWind
 import { useState } from "react";
 import Ornament from "@/components/ui/Ornament/Ornament";
 import { SoftSkillType } from "@/types/softSkill.types";
+import Button from "@/components/ui/Button/Button";
 
 // Animation Variants
 const fadeInUp: Variants = {
