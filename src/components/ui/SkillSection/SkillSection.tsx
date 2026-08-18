@@ -1,4 +1,5 @@
 // components/ui/SkillsSection.tsx
+import { ArrowUp, ArrowDown } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Card from "../Card/Card";
 import { CardProp, CardType } from "@/types/card.types";
@@ -139,36 +140,12 @@ const SkillsSection = ({
               isExpanded ? (
                 <>
                   Show Less
-                  <motion.svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 15l7-7 7 7"
-                    />
-                  </motion.svg>
+                  <ArrowUp />
                 </>
               ) : (
                 <>
                   Show More
-                  <motion.svg
-                    className="h-5 w-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </motion.svg>
+                  <ArrowDown />
                 </>
               )
             }
