@@ -1,14 +1,15 @@
 // components/ui/SkillsSection.tsx
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Card from "../Card/Card";
-import CardProp from "@/types/card.types";
+import { CardProp, CardType } from "@/types/card.types";
 import { useState } from "react";
 
 interface SkillsSectionProps {
   title: string;
   highlightedWord: string;
   skills: CardProp[];
-  initialCount?: number; // How many cards to show initially
+  initialCount?: number;
+  onCardSelected?: (card: any) => void;
 }
 
 const cardVariants: Variants = {
@@ -33,8 +34,9 @@ const SkillsSection = ({
   highlightedWord,
   skills,
   initialCount = 3,
+  onCardSelected,
 }: SkillsSectionProps) => {
-  const [visibleCards, setVisibleCards] = useState<CardProp[]>([]);
+  const [visibleCards, setVisibleCards] = useState<CardType[]>([]);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const initialSkills = skills.slice(0, initialCount);
@@ -81,10 +83,12 @@ const SkillsSection = ({
             key={card.title}
           >
             <Card
+              onCardSelected={() => onCardSelected?.(card)}
               icon={card.icon}
               title={card.title}
               description={card.description}
               delay={card.delay}
+              card={card}
             />
           </motion.div>
         ))}
@@ -112,10 +116,12 @@ const SkillsSection = ({
                 }}
               >
                 <Card
+                  onCardSelected={() => onCardSelected?.(card)}
                   title={card.title}
                   icon={card.icon}
                   description={card.description}
                   delay={card.delay}
+                  card={card}
                 />
               </motion.div>
             ))}

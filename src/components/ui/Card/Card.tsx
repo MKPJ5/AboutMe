@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
-import type CardProp from "@/types/card.types";
+import type { CardProp } from "@/types/card.types";
 import "./Card.css";
 
-const Card = ({ title, icon: Icon, description, delay }: CardProp) => {
+const Card = ({ title, icon: Icon, description, delay, onCardSelected, card }: CardProp) => {
   const isString = typeof Icon === "string";
 
   return (
-    <motion.div transition={{ delay: delay }} className="card">
+    <motion.div
+      transition={{ delay: delay }}
+      onClick={() => onCardSelected?.(card)}
+      className="card"
+    >
       <h3 className="title">{title}</h3>
       <div className="iconWrapper">
         {isString ? (
