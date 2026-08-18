@@ -1,9 +1,13 @@
 import Url from "@/assets/images/Chosen2.png";
 import { motion, type Variants } from "framer-motion";
-import JourneyItem from "../components/ui/JourneyItem/JourneyItem";
+import JourneyItem from "@/components/ui/JourneyItem/JourneyItem";
 import SoftSkillsInfo from "@/data/SoftSkillInfo";
-import CardsInfo from "@/data/SkillCardInfo";
-import SkillsSection from "../components/ui/SkillSection/SkillSection";
+import CardsInfo from "@/data/CodingSkillInfo";
+import SkillsSection from "@/components/ui/SkillSection/SkillSection";
+import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWindow";
+import { useState } from "react";
+import Ornament from "@/components/ui/Ornament/Ornament";
+import { SoftSkillType } from "@/types/softSkill.types";
 
 // Animation Variants
 const fadeInUp: Variants = {
@@ -12,6 +16,8 @@ const fadeInUp: Variants = {
 };
 
 const Home = () => {
+  const [selectedCard, setSelectedCard] = useState<SoftSkillType | null>(null);
+
   return (
     <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
       {/* --- HERO SECTION --- */}
@@ -45,7 +51,6 @@ const Home = () => {
           experiences.
         </motion.p>
       </section>
-
       {/* --- MY JOURNEY SECTION --- */}
       <section id="journey" className="mx-auto max-w-4xl px-6 py-6">
         <motion.h2
@@ -81,35 +86,18 @@ const Home = () => {
           />
         </div>
       </section>
-
-      {/* --- SKILLS SECTION --- */}
       <SkillsSection title="Coding" highlightedWord="Skills" skills={CardsInfo} initialCount={4} />
 
-      <div>
-        {/* Top Ornament */}
-        <div className="mb-8 flex items-center justify-center gap-4">
-          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
-          <span className="text-2xl text-[#D97706]">✦</span>
-          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
-        </div>
+      <Ornament quote="Code gets the job done. Character gets you the job" />
 
-        <p className="text-center font-serif text-xl text-[#A8A29E] italic md:text-2xl">
-          &ldquo;Code gets the job done. Character gets you the job.&rdquo;
-        </p>
-
-        {/* Bottom Ornament */}
-        <div className="mt-8 flex items-center justify-center gap-4">
-          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
-          <span className="text-2xl text-[#D97706]">✦</span>
-          <div className="h-px flex-1 bg-linear-to-r from-transparent via-[#FDE68A] to-transparent"></div>
-        </div>
-      </div>
       <SkillsSection
         title="Soft"
         highlightedWord="Skills"
         skills={SoftSkillsInfo}
         initialCount={4}
+        onCardSelected={(card) => setSelectedCard(card)}
       />
+      <SkillDetailWindow selectedCard={selectedCard} onClose={() => setSelectedCard(null)} />
     </div>
   );
 };
