@@ -8,9 +8,7 @@ import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWind
 import { useState } from "react";
 import Ornament from "@/components/ui/Ornament/Ornament";
 import { SoftSkillType } from "@/types/softSkill.types";
-import Button from "@/components/ui/Button/Button";
 
-// Animation Variants
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -52,7 +50,7 @@ const Home = () => {
           experiences.
         </motion.p>
       </section>
-      {/* --- MY JOURNEY SECTION --- */}
+
       <section id="journey" className="mx-auto max-w-4xl px-6 py-6">
         <motion.h2
           initial={{ opacity: 0 }}
