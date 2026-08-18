@@ -1,6 +1,6 @@
-import type CardProp from "../types/card.types";
+import type { CardType } from "../types/card.types";
 
-const CardsInfo: CardProp[] = [
+const CardsInfo: CardType[] = [
   {
     title: "TypeScript",
     icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/typescript/default.svg",
