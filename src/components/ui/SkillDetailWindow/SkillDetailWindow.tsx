@@ -3,7 +3,6 @@ import { SoftSkillType } from "@/types/softSkill.types";
 
 interface SkillDetailWindowProps {
   selectedCard: SoftSkillType | null;
-  onClose: () => void;
 }
 
 const detailVariants: Variants = {
@@ -28,7 +27,7 @@ const detailItemVariants: Variants = {
   visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
 };
 
-const SkillDetailWindow = ({ selectedCard, onClose }: SkillDetailWindowProps) => {
+const SkillDetailWindow = ({ selectedCard }: SkillDetailWindowProps) => {
   return (
     <AnimatePresence>
       {selectedCard && (
@@ -39,7 +38,7 @@ const SkillDetailWindow = ({ selectedCard, onClose }: SkillDetailWindowProps) =>
           exit="exit"
           className="mx-auto mb-8 max-w-6xl px-6"
         >
-          <div className="overflow-hidden rounded-2xl border border-[#FDE68A] bg-[#FFFBEB] shadow-lg">
+          <div className="overflow-hidden rounded-2xl border border-[#FDE68A] bg-[#ffffff] shadow-lg">
             {/* Header */}
             <motion.div
               variants={detailItemVariants}
@@ -52,25 +51,7 @@ const SkillDetailWindow = ({ selectedCard, onClose }: SkillDetailWindowProps) =>
                   <p className="text-sm font-medium text-[#D97706]">{selectedCard.description}</p>
                 </div>
               </div>
-
-              <motion.button
-                onClick={onClose}
-                className="rounded-lg p-2 text-[#A8A29E] transition-colors hover:bg-[#FEF3C7] hover:text-[#92400E]"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label="Close details"
-              >
-                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </motion.button>
             </motion.div>
-
             {/* Content */}
             <div className="px-8 py-6">
               <motion.p variants={detailItemVariants} className="leading-relaxed text-[#78716C]">
