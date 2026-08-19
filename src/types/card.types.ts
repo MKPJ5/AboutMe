@@ -10,6 +10,7 @@ interface CardType {
 interface CardProp extends CardType {
   card?: CardProp;
   onCardSelected?: (card: any) => void;
+  onFocusId?: number;
 }
 
 export type { CardProp, CardType };

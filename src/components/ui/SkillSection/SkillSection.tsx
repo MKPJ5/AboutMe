@@ -12,6 +12,7 @@ interface SkillsSectionProps {
   skills: CardProp[];
   initialCount?: number;
   onCardSelected?: (card: any) => void;
+  onFocusId?: number;
 }
 
 const cardVariants: Variants = {
@@ -37,6 +38,7 @@ const SkillsSection = ({
   skills,
   initialCount = 3,
   onCardSelected,
+  onFocusId,
 }: SkillsSectionProps) => {
   const [visibleCards, setVisibleCards] = useState<CardType[]>([]);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
@@ -91,6 +93,7 @@ const SkillsSection = ({
               description={card.description}
               delay={card.delay}
               card={card}
+              onFocusId={onFocusId}
             />
           </motion.div>
         ))}
@@ -124,6 +127,7 @@ const SkillsSection = ({
                   description={card.description}
                   delay={card.delay}
                   card={card}
+                  onFocusId={onFocusId}
                 />
               </motion.div>
             ))}

@@ -6,6 +6,7 @@ import CardsInfo from "@/data/CodingSkillInfo";
 import SkillsSection from "@/components/ui/SkillSection/SkillSection";
 import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWindow";
 import { useState } from "react";
+import { Dumbbell } from "lucide-react";
 import Ornament from "@/components/ui/Ornament/Ornament";
 import { SoftSkillType } from "@/types/softSkill.types";
 
@@ -15,7 +16,19 @@ const fadeInUp: Variants = {
 };
 
 const Home = () => {
-  const [selectedCard, setSelectedCard] = useState<SoftSkillType | null>(null);
+  const [selectedCard, setSelectedCard] = useState<SoftSkillType>({
+    icon: Dumbbell,
+    title: "Hardworking",
+    description: "I follow the 10X rule — ordinary results don't satisfy me.",
+    delay: 0.1,
+    moreDetails: "we will add this part at near future",
+  });
+  const [isFocused, setIsFocused] = useState<number>(0.1);
+
+  function handleCardSelect(card: SoftSkillType) {
+    setSelectedCard(card);
+    setIsFocused(card.delay);
+  }
 
   return (
     <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
@@ -63,20 +76,15 @@ const Home = () => {
 
         <div className="relative ml-4 space-y-12 border-l-2 border-[#FDE68A] md:ml-8">
           <JourneyItem
-            title="Mechanical Engineering in High School"
-            date="2020 - 2023"
-            description="Spent 3 years diving deep into mechanical systems. Learned discipline, project management, and how complex systems work together."
-          />
-          <JourneyItem
-            title="The Transition to Code"
+            title="Falling in Love"
             date="2023 - 2024"
             description="Fell in love with logic and problem solving. Started learning
-              JavaScript, TypeScript, and the React ecosystem."
+              JavaScript, HTML, and CSS styling."
           />
           <JourneyItem
             title="Deep Learning"
             date="2024 - 2025"
-            description="Focused on libraries and new technologies to stay updated."
+            description="Focused on frameworks , libraries and new technologies to stay updated."
           />
           <JourneyItem
             title="Preparing"
@@ -94,9 +102,10 @@ const Home = () => {
         highlightedWord="Skills"
         skills={SoftSkillsInfo}
         initialCount={4}
-        onCardSelected={(card) => setSelectedCard(card)}
+        onCardSelected={(card) => handleCardSelect(card)}
+        onFocusId={isFocused}
       />
-      <SkillDetailWindow selectedCard={selectedCard} onClose={() => setSelectedCard(null)} />
+      <SkillDetailWindow selectedCard={selectedCard} />
     </div>
   );
 };
