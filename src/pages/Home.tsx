@@ -6,7 +6,6 @@ import CardsInfo from "@/data/CodingSkillInfo";
 import SkillsSection from "@/components/ui/SkillSection/SkillSection";
 import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWindow";
 import { useState } from "react";
-import { Dumbbell } from "lucide-react";
 import Ornament from "@/components/ui/Ornament/Ornament";
 import { SoftSkillType } from "@/types/softSkill.types";
 
@@ -16,13 +15,7 @@ const fadeInUp: Variants = {
 };
 
 const Home = () => {
-  const [selectedCard, setSelectedCard] = useState<SoftSkillType>({
-    icon: Dumbbell,
-    title: "Hardworking",
-    description: "I follow the 10X rule — ordinary results don't satisfy me.",
-    delay: 0.1,
-    moreDetails: "we will add this part at near future",
-  });
+  const [selectedCard, setSelectedCard] = useState<SoftSkillType>(SoftSkillsInfo[0]);
   const [isFocused, setIsFocused] = useState<number>(0.1);
 
   function handleCardSelect(card: SoftSkillType) {
