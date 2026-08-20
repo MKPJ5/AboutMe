@@ -1,10 +1,8 @@
 import { LucideIcon } from "lucide-react";
+import { CardType } from "./card.types";
 
-interface SoftSkillType {
-  title: string;
+interface SoftSkillType extends CardType {
   icon: LucideIcon;
-  description: string;
-  delay: number;
   moreDetails: string;
 }
 
