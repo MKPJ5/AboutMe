@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+.article {
+  @apply relative flex flex-col overflow-hidden rounded-2xl border border-[#FDE68A] bg-white shadow-lg shadow-[#D97706]/5 transition-all duration-100;
+}
+
+.article:hover {
+  @apply -translate-y-2 bg-gray-50 shadow-[0_10px_30px_-10px_rgba(217,119,6,0.4)] ring-amber-800/30 transition-transform duration-200;
+}
+
+.imgDiv {
+  @apply relative h-48 overflow-hidden bg-linear-to-br from-[#FEF3C7] to-[#FFFBEB];
+}
+
+.titleImg {
+  @apply h-full w-full object-cover transition-transform duration-300 group-hover:scale-105;
+}
+
+.artTitle {
+  @apply mb-3 font-serif text-xl font-bold text-[#92400E] transition-colors group-hover:text-[#D97706];
+}
+.divider {
+  @apply mb-4 h-px bg-linear-to-r from-transparent via-[#FDE68A] to-transparent;
+}
+.LinkedInLink {
+  @apply flex h-10 w-10 items-center justify-center rounded-lg bg-[#FEF3C7] text-[#92400E] transition-colors hover:bg-[#D97706] hover:text-white;
+}
+
+.MediumLink {
+  @apply flex h-10 w-10 items-center justify-center rounded-lg bg-[#FEF3C7] text-[#92400E] transition-colors hover:bg-[#D97706] hover:text-white;
+}
+
+.decorativeLine {
+  @apply absolute inset-0 bg-linear-to-t from-black/5 to-transparent;
+}

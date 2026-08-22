@@ -1,4 +1,3 @@
-// components/ui/SkillsSection.tsx
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import Card from "@/components/ui/SkillCard/SkillCard";
