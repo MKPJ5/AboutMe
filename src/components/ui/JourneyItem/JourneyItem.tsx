@@ -1,10 +1,5 @@
 import { motion } from "framer-motion";
-
-interface JourneyProp {
-  title: string;
-  date: string;
-  description: string;
-}
+import { JourneyProp } from "@/types/JourneyItemTypes/JourneyItem.types";
 
 const JourneyItem = ({ title, date, description }: JourneyProp) => {
   return (

@@ -1,5 +1,5 @@
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { SoftSkillType } from "@/types/softSkill.types";
+import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
 
 interface SkillDetailWindowProps {
   selectedCard: SoftSkillType | null;

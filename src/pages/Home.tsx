@@ -1,13 +1,13 @@
 import Url from "@/assets/images/Chosen2.png";
 import { motion, type Variants } from "framer-motion";
 import JourneyItem from "@/components/ui/JourneyItem/JourneyItem";
-import SoftSkillsInfo from "@/data/SoftSkillInfo";
-import CardsInfo from "@/data/CodingSkillInfo";
+import SoftSkillsInfo from "@/data/SoftSkills/SoftSkillInfo";
+import CardsInfo from "@/data/CodingSkills/CodingSkillInfo";
 import SkillsSection from "@/components/ui/SkillSection/SkillSection";
 import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWindow";
 import { useState } from "react";
 import Ornament from "@/components/ui/Ornament/Ornament";
-import { SoftSkillType } from "@/types/softSkill.types";
+import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },

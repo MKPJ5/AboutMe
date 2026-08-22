@@ -1,5 +1,5 @@
 import { LucideIcon } from "lucide-react";
-import { CardType } from "./card.types";
+import { CardType } from "@/types/cardTypes/card.types";
 
 interface SoftSkillType extends CardType {
   icon: LucideIcon;

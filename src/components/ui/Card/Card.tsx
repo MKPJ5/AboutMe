@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import type { CardProp } from "@/types/card.types";
+import type { CardProp } from "@/types/cardTypes/card.types";
 import "./Card.css";
 
 const Card = ({
