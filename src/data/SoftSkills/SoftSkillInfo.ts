@@ -1,4 +1,4 @@
-import { SoftSkillType } from "@/types/softSkill.types";
+import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
 import { Dumbbell, Mountain, Users, Zap, HeartHandshake } from "lucide-react";
 
 const SoftSkillsInfo: SoftSkillType[] = [
