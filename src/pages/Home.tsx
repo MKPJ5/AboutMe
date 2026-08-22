@@ -8,6 +8,7 @@ import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWind
 import { useState } from "react";
 import Ornament from "@/components/ui/Ornament/Ornament";
 import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
+import { JourneyItemInfo } from "@/data/JourneyItems/JourneyItemsInfo";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 },
@@ -68,22 +69,14 @@ const Home = () => {
         </motion.h2>
 
         <div className="relative ml-4 space-y-12 border-l-2 border-[#FDE68A] md:ml-8">
-          <JourneyItem
-            title="Falling in Love"
-            date="2023 - 2024"
-            description="Fell in love with logic and problem solving. Started learning
-              JavaScript, HTML, and CSS styling."
-          />
-          <JourneyItem
-            title="Deep Learning"
-            date="2024 - 2025"
-            description="Focused on frameworks , libraries and new technologies to stay updated."
-          />
-          <JourneyItem
-            title="Preparing"
-            date="Present Day"
-            description="Building projects to demonstrate my skills and getting ready to enter the job market."
-          />
+          {JourneyItemInfo.map((item) => (
+            <JourneyItem
+              key={item.title}
+              title={item.title}
+              date={item.date}
+              description={item.description}
+            />
+          ))}
         </div>
       </section>
       <SkillsSection title="Coding" highlightedWord="Skills" skills={CardsInfo} initialCount={4} />
