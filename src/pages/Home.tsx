@@ -6,7 +6,7 @@ import CardsInfo from "@/data/CodingSkills/CodingSkillInfo";
 import SkillsSection from "@/components/ui/SkillSection/SkillSection";
 import SkillDetailWindow from "@/components/ui/SkillDetailWindow/SkillDetailWindow";
 import { useState } from "react";
-import Ornament from "@/components/ui/Ornament/Ornament";
+import Ornament from "@/components/ui/Ornaments/QuoteOrnament";
 import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
 import { JourneyItemInfo } from "@/data/JourneyItems/JourneyItemsInfo";
 

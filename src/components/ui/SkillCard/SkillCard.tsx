@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { CardProp } from "@/types/cardTypes/card.types";
-import "./Card.css";
+import "./SkillCard.css";
 
 const Card = ({
   title,

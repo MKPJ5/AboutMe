@@ -1,10 +1,10 @@
 // components/ui/SkillsSection.tsx
 import { ArrowUp, ArrowDown } from "lucide-react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import Card from "../Card/Card";
+import Card from "@/components/ui/SkillCard/SkillCard";
 import { CardProp, CardType } from "@/types/cardTypes/card.types";
 import { useState } from "react";
-import Button from "../Button/Button";
+import Button from "@/components/ui/Button/Button";
 
 interface SkillsSectionProps {
   title: string;
