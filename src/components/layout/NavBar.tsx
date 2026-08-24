@@ -71,7 +71,7 @@ const NavBar = () => {
       {/* Main Navbar */}
       <nav className="flex items-center justify-between bg-[#FFFBEB] px-4 py-2 sm:px-6 md:justify-end md:space-x-4 md:px-8">
         {/* Logo */}
-        <span className="font-cardo my-0 text-3xl text-[#92400E] sm:text-4xl md:mr-auto md:text-5xl">
+        <span className="font-cardo text-primary my-0 text-3xl sm:text-4xl md:mr-auto md:text-5xl">
           MKPJ
         </span>
 
@@ -83,7 +83,7 @@ const NavBar = () => {
               <NavLink
                 key={link.to}
                 className={({ isActive: linkActive }: types.NavLinkClassProps) =>
-                  `relative px-1 py-2 text-[#78716C] transition-colors hover:text-[#D97706] ${
+                  `hover:text-secondary relative px-1 py-2 text-[#78716C] transition-colors ${
                     linkActive && "text-[#D97706]"
                   }`
                 }
@@ -93,7 +93,7 @@ const NavBar = () => {
                 {isActive && (
                   <motion.div
                     layoutId="underline"
-                    className="absolute right-0 bottom-0 left-0 h-0.5 bg-[#D97706]"
+                    className="bg-secondary absolute right-0 bottom-0 left-0 h-0.5"
                     transition={{
                       type: "spring",
                       stiffness: 380,
@@ -109,7 +109,7 @@ const NavBar = () => {
         {/* Mobile Menu Button */}
         <motion.button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="rounded-lg p-2 text-[#92400E] transition-colors hover:text-[#D97706] md:hidden"
+          className="text-primary hover:text-secondary rounded-lg p-2 transition-colors md:hidden"
           aria-label="Toggle menu"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -165,10 +165,10 @@ const NavBar = () => {
               className="fixed top-0 right-0 z-50 h-full w-64 bg-[#FFFBEB] shadow-xl md:hidden"
             >
               <div className="flex items-center justify-between border-b border-[#FDE68A] px-4 py-4">
-                <span className="font-cardo text-2xl text-[#92400E]">MKPJ</span>
+                <span className="font-cardo text-primary text-2xl">MKPJ</span>
                 <motion.button
                   onClick={() => setIsSidebarOpen(false)}
-                  className="rounded-lg p-2 text-[#92400E] transition-colors hover:text-[#D97706]"
+                  className="text-primary hover:text-secondary rounded-lg p-2 transition-colors"
                   aria-label="Close menu"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

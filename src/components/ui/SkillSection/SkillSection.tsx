@@ -65,9 +65,9 @@ const SkillsSection = ({
           amount: 0.7,
           margin: "0px 0px -100px 0px",
         }}
-        className="mb-12 text-center font-serif text-3xl font-bold text-[#92400E]"
+        className="text-primary mb-12 text-center font-serif text-3xl font-bold"
       >
-        {title} <span className="text-[#D97706]">{highlightedWord}</span>
+        {title} <span className="text-secondary">{highlightedWord}</span>
       </motion.h2>
 
       <motion.div layout className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">

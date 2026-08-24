@@ -47,8 +47,8 @@ const SkillDetailWindow = ({ selectedCard }: SkillDetailWindowProps) => {
               <div className="flex items-center gap-4">
                 {<selectedCard.icon />}
                 <div>
-                  <h3 className="text-xl font-bold text-[#92400E]">{selectedCard.title}</h3>
-                  <p className="text-sm font-medium text-[#D97706]">{selectedCard.description}</p>
+                  <h3 className="text-primary text-xl font-bold">{selectedCard.title}</h3>
+                  <p className="text-secondary text-sm font-medium">{selectedCard.description}</p>
                 </div>
               </div>
             </motion.div>

@@ -34,7 +34,7 @@ const Footer = () => {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <h2 className="font-cardo text-3xl font-bold tracking-tight text-[#92400E]">MKPJ</h2>
+            <h2 className="font-cardo text-primary text-3xl font-bold tracking-tight">MKPJ</h2>
             <p className="max-w-xs text-sm text-[#78716C]">
               Self-taught developer. Discipline and hard work — that's the secret of getting better.
             </p>
@@ -46,7 +46,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h3 className="mb-4 text-sm font-semibold tracking-wider text-[#92400E] uppercase">
+            <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
               Quick Links
             </h3>
             <ul className="space-y-2">
@@ -54,7 +54,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.to}
-                    className="text-sm text-[#78716C] transition-colors duration-200 hover:text-[#D97706]"
+                    className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -69,7 +69,7 @@ const Footer = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="mb-4 text-sm font-semibold tracking-wider text-[#92400E] uppercase">
+            <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
               Connect
             </h3>
             <ul className="space-y-2">
@@ -77,7 +77,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <a
                     href={link.to}
-                    className="text-sm text-[#78716C] transition-colors duration-200 hover:text-[#D97706]"
+                    className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
                   >
                     {link.name}
                   </a>
@@ -103,7 +103,7 @@ const Footer = () => {
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 text-sm text-[#A8A29E] transition-colors duration-200 hover:cursor-pointer hover:text-[#D97706]"
+              className="hover:text-secondary flex items-center gap-2 text-sm text-[#A8A29E] transition-colors duration-200 hover:cursor-pointer"
             >
               <span>Back to top</span>
               <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

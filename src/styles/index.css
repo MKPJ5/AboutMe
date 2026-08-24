@@ -2,11 +2,12 @@
 
 @theme {
   --font-cardo: Cardo, "sans-serif";
-  --color-primary: #d97706;
+  --color-primary: #92400e;
+  --color-secondary: #d97706;
 }
 
 body {
-  @apply selection:bg-primary bg-[#FFFBEB];
+  @apply selection:bg-secondary bg-[#FFFBEB];
 }
 
 footer {

@@ -25,14 +25,14 @@ const Home = () => {
   }
 
   return (
-    <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
+    <div className="selection:text-primary min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A]">
       {/* --- HERO SECTION --- */}
       <section className="mx-auto flex max-w-6xl flex-col items-center px-6 pt-8 pb-16 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-[#D97706] shadow-lg shadow-[#D97706]/20"
+          className="border-secondary shadow-secondary/20 mb-6 h-32 w-32 overflow-hidden rounded-full border-4 shadow-lg"
         >
           <img src={Url} alt="MKPJ" className="h-full w-full object-cover" />
         </motion.div>
@@ -41,7 +41,7 @@ const Home = () => {
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
-          className="mb-3 font-serif text-4xl font-bold text-[#92400E] md:text-5xl"
+          className="text-primary mb-3 font-serif text-4xl font-bold md:text-5xl"
         >
           Hi, I'm MKPJ.
         </motion.h1>
@@ -53,7 +53,7 @@ const Home = () => {
           className="mb-8 max-w-lg text-lg text-[#78716C]"
         >
           Front-End Developer. Building{" "}
-          <span className="font-semibold text-[#D97706]"> Responsive </span>, performant web
+          <span className="text-secondary font-semibold"> Responsive </span>, performant web
           experiences.
         </motion.p>
       </section>
@@ -63,9 +63,9 @@ const Home = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="mb-12 text-center font-serif text-3xl font-bold text-[#92400E]"
+          className="text-primary mb-12 text-center font-serif text-3xl font-bold"
         >
-          My <span className="text-[#D97706]">Journey</span>
+          My <span className="text-secondary">Journey</span>
         </motion.h2>
 
         <div className="relative ml-4 space-y-12 border-l-2 border-[#FDE68A] md:ml-8">

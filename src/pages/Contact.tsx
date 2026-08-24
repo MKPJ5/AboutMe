@@ -20,7 +20,7 @@ const staggerContainer: Variants = {
 
 const Contact = () => {
   return (
-    <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
+    <div className="selection:text-primary min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A]">
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Header */}
         <motion.div
@@ -29,8 +29,8 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="mb-20 text-center"
         >
-          <h1 className="mb-4 font-serif text-4xl font-bold text-[#92400E] md:text-5xl">
-            Let's <span className="text-[#D97706]">Connect</span>
+          <h1 className="text-primary mb-4 font-serif text-4xl font-bold md:text-5xl">
+            Let's <span className="text-secondary">Connect</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-[#78716C]">
             Have a project in mind? Looking for a developer? Or just want to say hi? I'd love to
@@ -49,8 +49,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 font-serif text-3xl font-bold text-[#92400E]">
-              Why <span className="text-[#D97706]">Work With Me</span>
+            <h2 className="text-primary mb-4 font-serif text-3xl font-bold">
+              Why <span className="text-secondary">Work With Me</span>
             </h2>
             <p className="text-[#78716C]">
               I'm not saying I'm competing. I'm saying I live and grind on a different level.
@@ -81,8 +81,8 @@ const Contact = () => {
             viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <h2 className="mb-4 font-serif text-3xl font-bold text-[#92400E]">
-              Get in <span className="text-[#D97706]">Touch</span>
+            <h2 className="text-primary mb-4 font-serif text-3xl font-bold">
+              Get in <span className="text-secondary">Touch</span>
             </h2>
             <p className="text-[#78716C]">Choose the platform that works best for you</p>
           </motion.div>
@@ -112,23 +112,23 @@ const Contact = () => {
                 >
                   <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#FEF3C7] transition-colors group-hover:bg-white/20">
                     <img
-                      className="h-7 w-7 text-[#D97706] transition-colors group-hover:text-white"
+                      className="text-secondary h-7 w-7 transition-colors group-hover:text-white"
                       src={method.icon}
                       alt={method.label}
                     />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-semibold text-[#92400E] transition-colors group-hover:text-white">
+                    <h3 className="text-primary font-semibold transition-colors group-hover:text-white">
                       {method.title}
                     </h3>
                     <p className="text-sm text-[#A8A29E] transition-colors group-hover:text-white/80">
                       {method.description}
                     </p>
-                    <p className="mt-1 text-xs font-medium text-[#D97706] transition-colors group-hover:text-white">
+                    <p className="text-secondary mt-1 text-xs font-medium transition-colors group-hover:text-white">
                       {method.label}
                     </p>
                   </div>
-                  <ArrowRight className="h-5 w-5 text-[#D97706] transition-all group-hover:translate-x-1 group-hover:text-white" />
+                  <ArrowRight className="text-secondary h-5 w-5 transition-all group-hover:translate-x-1 group-hover:text-white" />
                 </motion.a>
               </motion.div>
             ))}
@@ -137,7 +137,7 @@ const Contact = () => {
 
         {/* Footer Note */}
         <div className="mt-16 text-center">
-          <CheckCircle2 className="mx-auto mb-4 h-8 w-8 text-[#D97706]" />
+          <CheckCircle2 className="text-secondary mx-auto mb-4 h-8 w-8" />
           <p className="text-sm text-[#A8A29E]">I typically respond within 24 hours</p>
         </div>
       </div>

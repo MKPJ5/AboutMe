@@ -24,7 +24,7 @@ const headerVariants: Variants = {
 
 const Articles = () => {
   return (
-    <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
+    <div className="selection:text-primary min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A]">
       <div className="mx-auto max-w-6xl px-6 py-16">
         {/* Header */}
         <motion.div
@@ -33,8 +33,8 @@ const Articles = () => {
           animate="visible"
           className="mb-16 text-center"
         >
-          <h1 className="mb-4 font-serif text-4xl font-bold text-[#92400E] md:text-5xl">
-            My <span className="text-[#D97706]">Articles</span>
+          <h1 className="text-primary mb-4 font-serif text-4xl font-bold md:text-5xl">
+            My <span className="text-secondary">Articles</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-[#78716C]">
             Thoughts, tutorials, and insights about web development, self-improvment, and my journey
