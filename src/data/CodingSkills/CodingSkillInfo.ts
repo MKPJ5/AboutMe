@@ -10,7 +10,7 @@ const CardsInfo: CardType[] = [
   {
     title: "React",
     icon: "https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public/icons/reactnative/default.svg",
-    description: "JavaScript Framework ",
+    description: "JavaScript Library ",
     delay: 0.2,
   },
   {
