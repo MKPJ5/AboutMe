@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div className="min-h-screen font-sans text-[#44403C] selection:bg-[#FDE68A] selection:text-[#92400E]">
       {/* --- HERO SECTION --- */}
-      <section className="mx-auto flex max-w-4xl flex-col items-center px-6 pt-8 pb-16 text-center">
+      <section className="mx-auto flex max-w-6xl flex-col items-center px-6 pt-8 pb-16 text-center">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -58,7 +58,7 @@ const Home = () => {
         </motion.p>
       </section>
 
-      <section id="journey" className="mx-auto max-w-4xl px-6 py-6">
+      <section id="journey" className="mx-auto max-w-6xl px-6 py-6">
         <motion.h2
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
