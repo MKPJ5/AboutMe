@@ -1,5 +1,5 @@
 import { SoftSkillType } from "@/types/SoftSkillTypes/softSkill.types";
-import { Dumbbell, Mountain, Users, Zap, HeartHandshake } from "lucide-react";
+import { Dumbbell, Mountain, Users, Zap, HeartHandshake, CalendarCheck } from "lucide-react";
 
 const SoftSkillsInfo: SoftSkillType[] = [
   {
@@ -41,6 +41,14 @@ const SoftSkillsInfo: SoftSkillType[] = [
     delay: 0.5,
     moreDetails:
       "I take every project seriously. On paper, it may look like I'm working for you — but if you watch how I grind to make things better, you'll think it's my own personal project.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Discipline",
+    description: "3 AM starts. Daily training. No excuses.",
+    delay: 0.6,
+    moreDetails:
+      "I wake up at 3 AM every day, run, work, train, study, and create — without a coach, without a boss, without anyone pushing me. That's what I call discipline.",
   },
 ];
 
