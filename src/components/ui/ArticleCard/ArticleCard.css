@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 .article {
-  @apply relative flex flex-col overflow-hidden rounded-2xl border border-[#FDE68A] bg-white shadow-lg shadow-[#D97706]/5 transition-all duration-100;
+  @apply relative flex flex-col overflow-hidden rounded-2xl border border-[#FDE68A] bg-white shadow-lg shadow-[#D97706]/5 transition-all duration-300;
 }
 
 .article:hover {
-  @apply -translate-y-2 bg-gray-50 shadow-[0_10px_30px_-10px_rgba(217,119,6,0.4)] ring-amber-800/30 transition-transform duration-200;
+  @apply -translate-y-2 bg-gray-50 shadow-[0_10px_30px_-10px_rgba(217,119,6,0.4)] ring-amber-800/30 transition-transform duration-300;
 }
 
 .imgDiv {
