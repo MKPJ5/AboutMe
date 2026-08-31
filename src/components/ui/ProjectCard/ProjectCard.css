@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+.projCard {
+  @apply flex flex-col overflow-hidden rounded-2xl border border-[#FDE68A] bg-white shadow-lg shadow-[#D97706]/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#D97706]/10;
+}
+
+.parentDiv {
+  @apply relative h-52 overflow-hidden bg-linear-to-br from-[#FEF3C7] to-[#FFFBEB];
+}
+.image {
+  @apply h-full w-full object-cover transition-transform duration-500 group-hover:scale-105;
+}
+
+.overlay {
+  @apply absolute inset-0 bg-linear-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+}
+
+.title {
+  @apply mb-3 font-serif text-xl font-bold text-[#92400E] transition-colors group-hover:text-[#D97706];
+}
+
+.github {
+  @apply flex items-center justify-between rounded-lg border border-[#FDE68A] bg-[#FFFBEB] px-4 py-2.5 text-sm font-medium text-[#92400e] transition-all hover:border-[#d97706] hover:bg-[#d97706] hover:text-white;
+}
+
+.vercel {
+  @apply flex items-center justify-between rounded-lg border border-[#FDE68A] bg-white px-4 py-2.5 text-sm font-medium text-[#92400e] transition-all hover:border-[#d97706] hover:bg-[#d97706] hover:text-white;
+}
