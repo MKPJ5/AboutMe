@@ -1,9 +1,8 @@
-import JourneyItem from "@/components/ui/JourneyItem/JourneyItem";
 import SingleOrnament from "@/components/ui/Ornaments/SingleOrnament";
 import { ContactMeCardsInfo } from "@/data/Contact/ContactMeInfo";
-import { DayRoutine } from "@/data/DayRoutin/DayRoutineInfo";
+
 import { motion, type Variants } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -27,51 +26,39 @@ const Contact = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-20 text-center"
+          className="mb-16 text-center"
         >
           <h1 className="text-primary mb-4 font-serif text-4xl font-bold md:text-5xl">
             Let's <span className="text-secondary">Connect</span>
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-[#78716C]">
-            Have a project in mind? Looking for a developer? Or just want to say hi? I'd love to
-            hear from you!
+            Have a project in mind? Looking for a React developer? Or just want to say hi? I'd love
+            to hear from you!
           </p>
+
+          {/* Open to */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm"
+          >
+            <span className="text-[#78716C]">Open to:</span>
+            <span className="inline-flex items-center gap-1 rounded-full border border-[#FDE68A] bg-[#FEF3C7] px-3 py-1 font-medium text-[#44403C]">
+              <Sparkles className="text-secondary h-3.5 w-3.5" />
+              Full-time React roles
+            </span>
+            <span className="rounded-full border border-[#FDE68A] bg-[#FEF3C7] px-3 py-1 font-medium text-[#44403C]">
+              Remote
+            </span>
+            <span className="rounded-full border border-[#FDE68A] bg-[#FEF3C7] px-3 py-1 font-medium text-[#44403C]">
+              Freelance projects
+            </span>
+          </motion.div>
 
           {/* Decorative divider */}
           <SingleOrnament />
         </motion.div>
-
-        {/* Why Work With Me Section */}
-        <section className="mb-24">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 text-center"
-          >
-            <h2 className="text-primary mb-4 font-serif text-3xl font-bold">
-              Why <span className="text-secondary">Work With Me</span>
-            </h2>
-            <p className="text-[#78716C]">
-              I'm not saying I'm competing. I'm saying I live and grind on a different level.
-            </p>
-
-            <p className="text-[#78716C]">You ask how?</p>
-
-            <p className="text-[#78716C]">Let my daily routine answer that.</p>
-          </motion.div>
-
-          <div className="relative ml-4 space-y-12 border-l-2 border-[#FDE68A] md:ml-8">
-            {DayRoutine.map((item) => (
-              <JourneyItem
-                key={item.title}
-                title={item.title}
-                date={item.date}
-                description={item.description}
-              />
-            ))}
-          </div>
-        </section>
 
         {/* Contact Methods Section */}
         <section>
