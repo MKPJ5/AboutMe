@@ -37,7 +37,7 @@ const ProjectCard = ({ project, index }: ProjectCardProps) => {
         <div className="flex flex-1 flex-col p-6">
           <h3 className="title">{project.title}</h3>
 
-          <p className="mb-6 flex-1 text-sm leading-relaxed text-[#78716C]">
+          <p className="mb-6 max-h-24 flex-1 overflow-auto text-sm leading-relaxed text-[#78716C]">
             {project.description}
           </p>
 
