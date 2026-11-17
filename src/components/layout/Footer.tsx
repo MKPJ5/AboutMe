@@ -40,51 +40,53 @@ const Footer = () => {
             </p>
           </motion.div>
 
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
-              Quick Links
-            </h3>
-            <ul className="space-y-2">
-              {footerLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.to}
-                    className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+          <div className="flex justify-around md:justify-between">
+            {/* Quick Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+            >
+              <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
+                Quick Links
+              </h3>
+              <ul className="space-y-2">
+                {footerLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      to={link.to}
+                      className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
 
-          {/* Connect */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
-              Connect
-            </h3>
-            <ul className="space-y-2">
-              {socialLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.to}
-                    className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+            {/* Connect */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <h3 className="text-primary mb-4 text-sm font-semibold tracking-wider uppercase">
+                Connect
+              </h3>
+              <ul className="space-y-2">
+                {socialLinks.map((link) => (
+                  <li key={link.name}>
+                    <a
+                      href={link.to}
+                      className="hover:text-secondary text-sm text-[#78716C] transition-colors duration-200"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
 
         {/* Bottom Bar */}
