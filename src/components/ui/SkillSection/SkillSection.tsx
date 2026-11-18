@@ -56,7 +56,7 @@ const SkillsSection = ({
   }
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
+    <section className="mx-auto max-w-6xl px-4 py-20 md:px-6">
       <motion.h2
         initial={{ opacity: 0, y: -200 }}
         whileInView={{ opacity: 1, y: 0, transition: { type: "spring", stiffness: 120 } }}
@@ -70,7 +70,7 @@ const SkillsSection = ({
         {title} <span className="text-secondary">{highlightedWord}</span>
       </motion.h2>
 
-      <motion.div layout className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <motion.div layout className="grid grid-cols-2 gap-5 md:gap-8 lg:grid-cols-4">
         {initialSkills.map((card) => (
           <motion.div
             layout
@@ -102,7 +102,7 @@ const SkillsSection = ({
         {visibleCards.length > 0 && (
           <motion.div
             layout
-            className="mt-8 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
+            className="mt-8 grid grid-cols-2 gap-5 md:gap-8 lg:grid-cols-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
           >
@@ -134,7 +134,6 @@ const SkillsSection = ({
         )}
       </AnimatePresence>
 
-      {/* Show More/Less Button - only if there are more skills to show */}
       {remainingSkills.length > 0 && (
         <motion.div layout className="mt-8 flex justify-center">
           <Button

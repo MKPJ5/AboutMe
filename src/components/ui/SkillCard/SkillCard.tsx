@@ -24,7 +24,7 @@ const Card = ({
         {isString ? (
           <img src={Icon} alt={title} className="icon" />
         ) : (
-          <Icon className="text-primary h-14 w-14 object-contain" />
+          <Icon className="text-primary h-8 w-8 object-contain md:h-14 md:w-14" />
         )}
       </div>
       <p className="description">{description}</p>
