@@ -24,11 +24,11 @@ export const ProjectsInfo: ProjectType[] = [
   },
   {
     id: 3,
-    title: "Todo SPA",
+    title: "Expense Tracker",
     description:
       "A personal finance app that helps users track their expenses, filter them by category and date, and see where their money is going through interactive charts. It handles user accounts securely so each person's data stays private, and updates instantly as users add or edit expenses.",
     githubUrl: "https://github.com/MKPJ5/Todo-App",
-    vercelUrl: "https://ecommerce.vercel.app",
+    vercelUrl: "https://expensemanager-sand.vercel.app/",
     techStack: [
       "React",
       "TypeScript",
