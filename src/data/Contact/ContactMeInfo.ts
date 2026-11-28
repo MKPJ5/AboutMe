@@ -13,7 +13,7 @@ const ContactMeCardsInfo: ContactCardType[] = [
     description: "Fastest way to reach me",
     link: "https://t.me/MichaelKpj",
     color: "hover:bg-[#0088cc]",
-    label: "@bmkpj55",
+    label: "@MichaelKpj",
   },
   {
     icon: Linkedin,
